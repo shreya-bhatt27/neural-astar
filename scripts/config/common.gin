@@ -14,7 +14,7 @@ Runner.multi_gpu = False
 # ==============================================================================
 train.datafile = 'data/mpd/alternating_gaps_032_news_c8.npz'
 train.logdir = 'icml2021_test'
-train.save_intermediate = False
+train.save_intermediate = True
 train.seed = 1993
 train.batch_size = 100
 train.num_epochs = 100
