@@ -144,22 +144,22 @@ def train(
 
         # Save intermediate model.
         if save_intermediate:
-            runner.planner.save("latest_checkpoint.pth")
-            #torch.save(
-            #    {
-            #        "model": runner.planner.state_dict(),
-            #        "best_state_dict": runner.best_state_dict,
-            #        "tr_total_loss": tr_total_loss,
-            #        "tr_total_optimal": tr_total_optimal,
-            #        "tr_total_success": tr_total_success,
-            #        "tr_total_exp": tr_total_exp,
-            #        "v_total_loss": v_total_loss,
-            #        "v_total_optimal": v_total_optimal,
-            #        "v_total_success": v_total_success,
-            #        "v_total_exp": v_total_exp,
-            #    },
-            #    save_directory + "/e" + str(epoch) + ".pth",
-            #)
+            #runner.planner.save("latest_checkpoint.pth")
+            torch.save(
+                {
+                    "model": runner.planner.model.state_dict(),
+                    "best_state_dict": runner.best_state_dict,
+                    "tr_total_loss": tr_total_loss,
+                    "tr_total_optimal": tr_total_optimal,
+                    "tr_total_success": tr_total_success,
+                    "tr_total_exp": tr_total_exp,
+                    "v_total_loss": v_total_loss,
+                    "v_total_optimal": v_total_optimal,
+                    "v_total_success": v_total_success,
+                    "v_total_exp": v_total_exp,
+                },
+                save_directory + "/e" + str(epoch) + ".pth",
+            )
 
     # Test accuracy
     print("\nFinal test performance:")
